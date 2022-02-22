@@ -2,67 +2,58 @@ import React from "react";
 
 
 class listTodo extends React.Component{
+    showdel=(a)=>{
+        let number=0;
+        let id= document.getElementById(a+"del");
+        let lb= document.getElementById(a+"lb");
+        let checkbox= document.querySelectorAll(".value input");
+        id.style.display=="block"?
+           id.style.display="none" : id.style.display="block";
+           id.style.display=="block"? lb.style.textDecoration="line-through":lb.style.textDecoration="none";
+        for(let i=0;i<checkbox.length;i++){
+            if(checkbox[i].checked){
+                number=1;
+            }
+        }
+        number==1? document.getElementById("clearDone").style.backgroundColor="red": document.getElementById("clearDone").style.backgroundColor="pink"; 
+     
+    }
+    showdetail=(a)=>{
+        let id= document.getElementById(a+"detail");
+        id.style.display=="block"?
+            id.style.display="none": id.style.display="block"
+          
+       }
   
+
     render(){
 
-       
+     
         return(      
-<div class="list">
-<fieldset >
-<legend>List To-do</legend>
-<div class="item-list" id="l-1">
-<div class="title">
-<div class="value" id="v-1">
-<input onchange="del(this,'l-1','v-1')" type="checkbox" name="todo1" value="Read React book"></input>
-<label for="todo1">Read React book</label>
-</div>
-<div class="option">
-<button>
-Edit
-</button>
-<button onclick="show('l-1')">
-Chi tiết
-</button>
-<button class="del">
-delete
-</button>
-</div>
-</div>
-<div class="items-1"><p>Detail:ok phết</p></div>
-</div>
-<div class="item-list" id="l-2">
-<div class="title">
-<div class="value" id="v-2">
-<input onchange="del(this,'l-2','v-2')" type="checkbox" name="todo1" value="Read React book"></input>
-<label for="todo1">ăn chơi</label>
-</div>
-<div class="option">
-<button>
-Edit
-</button>
-<button onclick="show('l-2')">
-Chi tiết
-</button>
-<button class="del">
-delete
-</button>
-</div>
-</div>
-<div class="items-1"><p>Detail:ok à</p></div>
-</div>
-
-
-</fieldset>
-<div class="option-main">
-<button>
-CLEAR ALL
-</button>
-<button>
-CLEAR DONE
-</button>
-</div>
-</div>
+            <>
             
+    <div class="item-list" id={this.props.id}>
+<div class="title">
+<div class="value">
+<input onClick={()=>this.showdel(this.props.id)} type="checkbox" name="todo1" value={this.props.id}></input>
+<label id={this.props.id+"lb"} for="todo1">{this.props.title}</label>
+</div>
+<div class="option">
+<button>
+Edit
+</button>
+<button onClick={()=>this.showdetail(this.props.id)}>
+Chi tiết
+</button>
+<button id={this.props.id+"del"}class="del">
+delete
+</button>
+</div>
+</div>
+<div id={this.props.id+"detail"} class="items-1"><p>{this.props.detail}</p></div>
+</div>     
+
+            </>     
         )
     }
 }
