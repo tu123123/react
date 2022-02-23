@@ -41,7 +41,7 @@ class Todo extends React.Component{
         let checkbox= document.querySelectorAll("input");
         for(let i=0;i<checkbox.length;i++){
             if(checkbox[i].checked){
-                let v = this.state.list.filter(item=>item.id==checkbox[i].value);
+                let v = this.state.list.filter(item=>item.id!=checkbox[i].value);
                 this.setState({
                     list:v
             })
