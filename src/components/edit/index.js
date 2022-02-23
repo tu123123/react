@@ -2,7 +2,9 @@ import React from 'react';
 import './edit.css';
 class edit extends React.Component{
 
-
+  close=()=>{
+      document.querySelector(".edit").style.display="none";
+  }
     render(){
 
         return(
@@ -10,6 +12,7 @@ class edit extends React.Component{
 
 <div class="e-item">
 <p onclick="clickItem()">Enter Item</p>
+<input class="id" hidden></input>
 <input onfocusout="unclick()"  onclick="clickItem()" class="i-item" ></input>
 </div>
 <div class="des">
@@ -20,7 +23,7 @@ class edit extends React.Component{
 <br/>
 </div>
 <div class="button">
-    <button>SAVE</button> <button>Close</button>
+    <button>SAVE</button> <button onClick={()=>this.close()}>Close</button>
     </div>
                 </div>
 

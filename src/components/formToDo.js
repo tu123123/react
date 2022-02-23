@@ -57,7 +57,7 @@ class Todo extends React.Component{
         return(
            
            <div class="container">
-            <Edit/>
+           
 <h2>TO-DO LIST</h2>
 <div class="e-item">
 <p onclick="clickItem()">Enter Item</p>
@@ -89,7 +89,7 @@ CLEAR DONE
 </button>
 </div>
 </div>
-
+<Edit/>
  </div>
         )
     }
