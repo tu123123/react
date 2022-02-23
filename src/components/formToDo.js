@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import './formToDo.css';
 import List from './listTodo';
-import Edit from './eidt';
+import Edit from './edit';
 class Todo extends React.Component{
     
     state={
