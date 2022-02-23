@@ -39,16 +39,28 @@ class Todo extends React.Component{
     })
         }
     selectClear=()=>{
+        let v = this.state.list
         let checkbox= document.querySelectorAll("input");
+        let checkboxdl= document.querySelectorAll(".list .del");
+        let checkboxlb= document.querySelectorAll(".list label");
         for(let i=0;i<checkbox.length;i++){
             if(checkbox[i].checked){
-                let v = this.state.list.filter(item=>item.id!=checkbox[i].value);
-                this.setState({
-                    list:v
-            })
-        
+                 v = v.filter(item=>item.id!=checkbox[i].value);
+                
         }
     }
+    this.setState({
+        list:v
+})
+for(let i=0;i<checkbox.length;i++){
+   checkbox[i].checked=false;
+       
+}
+for(let i=0;i<checkboxlb.length;i++){
+    checkboxlb[i].style.textDecoration="none";
+    checkboxdl[i].style.display="none";
+        
+ }
     }    
 
     render(){
