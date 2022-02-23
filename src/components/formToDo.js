@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import './formToDo.css';
 import List from './listTodo';
+import Edit from './eidt';
 class Todo extends React.Component{
     
     state={
@@ -54,8 +55,9 @@ class Todo extends React.Component{
 
        
         return(
-            
+           
            <div class="container">
+            <Edit/>
 <h2>TO-DO LIST</h2>
 <div class="e-item">
 <p onclick="clickItem()">Enter Item</p>
