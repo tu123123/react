@@ -59,7 +59,7 @@ delete
 </button>
 </div>
 </div>
-<div id={this.props.id+"detail"} class="items-1"><p>{this.props.detail}</p></div>
+<div id={this.props.id+"detail"} class="items-1"><p><b>Detail:</b> {this.props.detail}</p></div>
 </div>     
 
             </>     

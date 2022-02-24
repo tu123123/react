@@ -118,7 +118,17 @@ for(let i=0;i<checkboxlb.length;i++){
     checkboxdl[i].style.display="none";
         
  }
-    }    
+    let number=0;
+        
+        for(let i=0;i<checkbox.length;i++){
+            if(checkbox[i].checked){
+                number=1;
+            }
+        }
+        number==1? document.getElementById("clearDone").style.backgroundColor="red": document.getElementById("clearDone").style.backgroundColor="pink"; 
+     
+    }
+       
 
     render(){
 
