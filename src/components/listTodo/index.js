@@ -2,11 +2,11 @@ import React from "react";
 
 
 class listTodo extends React.Component{
-    showEdit=(a,b,c)=>{
+    showEdit=(a)=>{
         document.querySelector(".edit").style.display="flex";
-        document.querySelector(".edit .i-item").value=a;
-        document.querySelector(".edit .des input").value=b;
-        document.querySelector(".edit .id").value=c;
+        document.querySelector(".edit .i-item").value=a.title;
+        document.querySelector(".edit .des input").value=a.detail;
+        document.querySelector(".edit .id").value=a.id;
 
 
     }
@@ -48,7 +48,7 @@ class listTodo extends React.Component{
 <label id={this.props.id+"lb"} for="todo1">{this.props.title}</label>
 </div>
 <div class="option">
-<button onClick={()=>this.showEdit(this.props.title,this.props.detail,this.props.id)}>
+<button onClick={()=>this.showEdit(this.props.item)}>
 Edit
 </button>
 <button onClick={()=>this.showdetail(this.props.id)}>

@@ -6,9 +6,31 @@ class Todo extends React.Component{
     
     state={
         list:[
+           
             ]
- 
         }
+        callback=(a,b,c)=>{
+            
+            this.state.list.map(item=>{
+                if(item.id==a){
+                    this.setState({
+                        list:[...this.state.list,item.detail=b,item.title=c]
+                        
+                    })
+                   
+            
+        }}
+       
+        )
+        this.setState({
+            list:[...this.state.list]
+            
+        })
+            document.querySelector(".edit").style.display="none";
+           
+    
+        }
+        
         addList=()=>{
             
             let it= document.querySelector('.e-item input');
@@ -88,7 +110,7 @@ for(let i=0;i<checkboxlb.length;i++){
 {  
    
     this.state.list.map((item)=>
-    <List title={item.title} detail={item.detail} id={item.id} show={this.showClear}/>
+    <List title={item.title} item={item} detail={item.detail} id={item.id} show={this.showClear}/>
 )}
 
 </fieldset>
@@ -101,7 +123,7 @@ CLEAR DONE
 </button>
 </div>
 </div>
-<Edit/>
+<Edit callback={this.callback}/>
  </div>
         )
     }
