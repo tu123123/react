@@ -2,8 +2,41 @@ import React,{useState} from "react";
 import './formToDo.css';
 import List from './listTodo';
 import Edit from './edit';
+import './animation';
 class Todo extends React.Component{
-    
+     title=()=>{
+        document.querySelector('.e-item p').style.transform="translateY(0)";
+        document.querySelector('.e-item p').style.transform="scale(0.7)";
+        document.querySelector('.e-item p').style.color="gray";
+    }
+    untitle=()=>{
+        if( document.querySelector('.e-item .i-item').value=="")
+        {
+            document.querySelector('.e-item p').style.transform="scale(1)";
+            document.querySelector('.e-item p').style.transform="translateY(20px)";
+            document.querySelector('.e-item p').style.color="black";
+        }
+       
+    }
+    clickDes=()=>{
+       let a=document.querySelector('.formdes legend');
+       let b=document.querySelector('.formdes fieldset');
+       a.style.transform="translateY(0)";
+       a.style.color='blue';
+       b.style.border="2px solid blue"
+    }
+    unclickDes=()=>{
+        if( document.querySelector('.formdes input').value=="")
+        {
+        let a=document.querySelector('.formdes legend');
+       let b=document.querySelector('.formdes fieldset');
+       a.style.transform="translateY(20px)";
+       a.style.color='gray';
+       b.style.border="2px solid rgb(237, 237, 238)"
+    }}
+    des=()=>{
+
+    }
     state={
         list:[
            
@@ -51,6 +84,8 @@ class Todo extends React.Component{
             this.setState({
                 list:[...this.state.list,newitem]
             })}
+            this.unclickDes();
+            this.untitle();
         }
     clearAll=()=>{
         document.getElementById("clearDone").style.backgroundColor="pink";
@@ -93,14 +128,14 @@ for(let i=0;i<checkboxlb.length;i++){
            <div class="container">
            
 <h2>TO-DO LIST</h2>
-<div class="e-item">
-<p onclick="clickItem()">Enter Item</p>
-<input onfocusout="unclick()"  onclick="clickItem()" class="i-item" ></input>
+<div class="e-item form">
+<p >Enter Item</p>
+<input onBlur={()=>this.untitle()}  onClick={()=>this.title()} class="i-item" ></input>
 </div>
-<div class="des">
+<div class="des formdes">
 <fieldset>
 <legend onclick="clickDes()">Description</legend>
-<input onfocusout="unclickDes()" onclick="clickDes()"  class="i-des"></input>
+<input  onBlur={()=>this.unclickDes()} onClick={()=>this.clickDes()}  class="i-des"></input>
 </fieldset>
 <button onClick={()=>this.addList()}>ADD</button>
 </div>
