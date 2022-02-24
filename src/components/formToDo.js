@@ -32,7 +32,7 @@ class Todo extends React.Component{
        let b=document.querySelector('.formdes fieldset');
        a.style.transform="translateY(20px)";
        a.style.color='gray';
-       b.style.border="2px solid rgb(237, 237, 238)"
+       b.style.border="none"
     }}
     des=()=>{
 
